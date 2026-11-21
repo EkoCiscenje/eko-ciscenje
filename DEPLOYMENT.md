@@ -14,8 +14,8 @@ Pages Functions.
    binding.
 4. The contact form sends email through Cloudflare Email Routing's `EMAIL`
    binding.
-5. The scheduled GitHub workflow checks the menu spreadsheet and redeploys the
-   Worker when menu data changes.
+5. The scheduled Google Sheets integration is disabled. Deployments use
+   `src/data/offerings.json` as the local offerings source.
 
 ## Cloudflare Worker Settings
 
@@ -29,8 +29,6 @@ The source of truth is `wrangler.toml`.
 
 The Worker needs these environment variables:
 
-- `SPREADSHEET_ID`
-- `GOOGLE_SHEETS_GID` if the sheet tab is not gid `0`
 - `CONTACT_TO_EMAIL` - the verified inbox that receives contact messages.
 - `CONTACT_FROM_EMAIL` - the sender on your Email Routing domain, for example
   `kontakt@eko-ciscenje.com`.
@@ -57,10 +55,30 @@ verified Email Routing destinations.
 
 Set these repository variables or secrets:
 
-- `SPREADSHEET_ID`
-- `GOOGLE_SHEETS_GID` if needed
 - `CLOUDFLARE_API_TOKEN` as a secret
 - `CLOUDFLARE_ACCOUNT_ID` as a secret
+
+## Pricing and Google Sheets (disabled)
+
+Pricing display and Google Sheets synchronization are intentionally disabled.
+The active implementation reads `src/data/offerings.json`, ignores all sheet
+and environment configuration, and has no price markup in the catalog.
+
+To re-enable Google Sheets:
+
+1. Set `GOOGLE_SHEETS_ENABLED = true` in `src/googleSheets.ts`.
+2. Restore the CSV fetch/parser and set `SPREADSHEET_ID` and optionally
+   `GOOGLE_SHEETS_GID` in the deployment environment.
+3. Restore the Google Sheet change check in `scripts/deploy-check.mjs`.
+4. Add and review the required sheet columns and fallback behavior.
+
+To re-enable prices, do it as a separate change:
+
+1. Set `PRICE_DISPLAY_ENABLED = true` in `src/googleSheets.ts`.
+2. Restore price fields in `src/schemas.ts`, `src/data/offerings.json`,
+   `public/admin/config.yml`, and `src/components/Catalog/CatalogSection.astro`.
+3. Re-enable deployment validation and change hashing only after the schema,
+   CMS, and UI are consistent.
 
 The API token must be able to deploy Workers.
 

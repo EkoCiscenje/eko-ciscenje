@@ -529,6 +529,26 @@ npm install decap-server
 > [!NOTE]
 > Remove `local_backend: true` before deploying to production.
 
+## Pricing and Google Sheets status
+
+Prices and Google Sheets synchronization are **disabled**. The active catalog
+is local and uses `src/data/offerings.json`; no sheet is fetched and no price
+is displayed or validated.
+
+- The developer gate is `GOOGLE_SHEETS_ENABLED = false` in
+  `src/googleSheets.ts`.
+- The developer gate is `PRICE_DISPLAY_ENABLED = false` in the same file.
+- The deployment hash script reads only the local offerings JSON.
+- The CMS and schemas do not expose price or currency fields.
+
+To re-enable Google Sheets, set `GOOGLE_SHEETS_ENABLED = true`, restore the
+CSV loader and configure `SPREADSHEET_ID` and optional `GOOGLE_SHEETS_GID`.
+To re-enable prices, set `PRICE_DISPLAY_ENABLED = true` and restore price
+fields and markup in the schema, CMS, catalog component, and deployment
+validation. Enable each feature separately and test the full build.
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for the complete re-enablement checklist.
+
 ## Deployment
 
 ### Pre-Deployment Checklist
