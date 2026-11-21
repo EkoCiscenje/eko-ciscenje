@@ -2,13 +2,33 @@
 /* THe classses should match the elements created in the Decap CMS preview pane script in admin.astro */
 
 :root {
-	--primary: hsl(80, 90%, 55%);
-	--primaryLight: hsl(80, 60%, 40%);
-	--secondary: #001f3f;
-	--secondaryLight: #001f3f;
-	--headerColor: #1a1a1a;
-	--bodyTextColor: #4e4b66;
-	--bodyTextColorWhite: #fafbfc;
+	--eko-forest: #0E4A2B;
+	--eko-leaf: #1E8449;
+	--eko-fern: #3DAE63;
+	--eko-lime: #A5D65F;
+	--eko-mint: #E8F5EC;
+	--eko-bark: #7B5434;
+	--eko-ink: #10231A;
+	--eko-white: #FFFFFF;
+
+	--primary: var(--eko-leaf);
+	--primaryLight: var(--eko-forest);
+	--secondary: var(--eko-bark);
+	--secondaryLight: #3B5745;
+	--headerColor: var(--eko-ink);
+	--bodyTextColor: var(--eko-ink);
+	--bodyTextColorWhite: var(--eko-white);
+
+	--primaryDark: var(--eko-lime);
+	--dark: var(--eko-ink);
+	--medium: var(--eko-forest);
+	--accent: var(--eko-leaf);
+	--grey: #20372B;
+	--light: var(--eko-mint);
+	--darkCard: #1B3327;
+	--darkCardBorder: rgba(165, 214, 95, 0.24);
+	--darkCardShadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+	--darkPanelShadow: 0 18px 44px rgba(0, 0, 0, 0.32);
 
 	/* 13px - 16px */
 	--topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
