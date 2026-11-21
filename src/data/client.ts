@@ -23,7 +23,7 @@ export const BUSINESS = {
     mapLink: "https://maps.app.goo.gl/xX5ZVQLiH57prSWy8",
   },
   socials: {
-    facebook: "https://www.facebook.com/",
+    facebook: "https://www.facebook.com/profile.php?id=61596459915846#",
     instagram: "https://www.instagram.com/",
   },
 };
