@@ -11,7 +11,7 @@ export const SITE = {
 export const BUSINESS = {
   name: "Eko Čišćenje",
   email: "contact@eko-ciscenje.com",
-  phoneForTel: "+385951999754",
+  phoneForTel: "+385914478191",
   phoneFormatted: "+385 91 447 8191",
   logo: "/favicon.svg",
   address: {
