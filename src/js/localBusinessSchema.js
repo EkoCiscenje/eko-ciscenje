@@ -54,7 +54,6 @@ export function getLocalBusinessSchema(origin) {
           "Carpet cleaning",
           "Upholstery cleaning",
         ],
-        priceRange: "EUR",
         areaServed: [
           {
             "@type": "City",

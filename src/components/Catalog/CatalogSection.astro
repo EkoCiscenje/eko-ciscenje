@@ -19,8 +19,6 @@ interface OfferingItem {
 	page?: Array<"commercial" | "residential">;
 	name: LocalizedText;
 	description: LocalizedText;
-	price: number;
-	included?: boolean;
 	badges: Record<Locale, string[]>;
 	available: boolean;
 	featured?: boolean;
@@ -37,18 +35,12 @@ interface Props {
 const { locale, page, categoryIds, offeringsData, intro } = Astro.props as Props;
 const categories = offeringsData.categories as CatalogCategory[];
 const items = offeringsData.items as OfferingItem[];
-const currency = offeringsData.currency;
 const updatedAt = new Date(`${offeringsData.updatedAt}T12:00:00`);
 const dateFormatter = new Intl.DateTimeFormat(locale === "hr" ? "hr-HR" : "en-US", {
 	day: "numeric",
 	month: "long",
 	year: "numeric",
 });
-const priceFormatter = new Intl.NumberFormat(locale === "hr" ? "hr-HR" : "en-US", {
-	style: "currency",
-	currency,
-});
-
 const pageMatches = (
 	itemPage: OfferingItem["page"],
 	currentPage: "commercial" | "residential",
@@ -81,11 +73,7 @@ const updatedLabel = locale === "hr" ? "Ažurirano" : "Updated";
 				selectedCategories.map((category) => {
 					const categoryItems = items
 						.filter((item) => category.id === item.categoryId && pageMatches(item.page, page))
-						.sort((a, b) => {
-							const aIncluded = Boolean(a.included);
-							const bIncluded = Boolean(b.included);
-							return Number(aIncluded) - Number(bIncluded);
-						});
+						;
 
 					return (
 						<section class="catalog-category" aria-labelledby={`catalog-${category.id}`}>
@@ -112,20 +100,6 @@ const updatedLabel = locale === "hr" ? "Ažurirano" : "Updated";
 												</div>
 											)}
 										</div>
-										{(item.price > 0 || item.included) && (
-											<strong class:list={["price", { "price-included": item.included }]}>
-												{item.included ? (
-													<>
-														{item.price > 0 && (
-															<span class="price-original">{priceFormatter.format(item.price)}</span>
-														)}
-														<span class="price-zero">{priceFormatter.format(0)}</span>
-													</>
-												) : (
-													priceFormatter.format(item.price)
-												)}
-											</strong>
-										)}
 									</li>
 								))}
 							</ul>
@@ -266,35 +240,6 @@ const updatedLabel = locale === "hr" ? "Ažurirano" : "Updated";
 		border-color: var(--primary);
 	}
 
-	.price {
-		font-size: clamp(1.1rem, 2vw, 1.35rem);
-		line-height: 1.1;
-		color: var(--headerColor);
-		white-space: nowrap;
-	}
-
-	.price-included {
-		display: inline-flex;
-		flex-wrap: wrap;
-		gap: 0.55rem;
-		align-items: baseline;
-	}
-
-	.price-original,
-	.price-zero {
-		font-size: clamp(1rem, 2vw, 1.25rem);
-	}
-
-	.price-original {
-		text-decoration: line-through;
-		opacity: 0.8;
-	}
-
-	.price-zero {
-		font-weight: 700;
-		color: var(--primary);
-	}
-
 	@media only screen and (max-width: 48rem) {
 		.catalog-category {
 			grid-template-columns: 1fr;
@@ -316,7 +261,6 @@ const updatedLabel = locale === "hr" ? "Ažurirano" : "Updated";
 
 		.category-heading h3,
 		.item-title-row h4,
-		.price,
 		.catalog-heading .cs-title {
 			color: var(--bodyTextColorWhite);
 		}
