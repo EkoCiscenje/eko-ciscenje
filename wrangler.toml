@@ -3,11 +3,11 @@ compatibility_date = "2026-04-29"
 main = "worker/index.js"
 
 [[routes]]
-pattern = "eko-ciscenje.lukasulc.com"
+pattern = "eko-ciscenje.com"
 custom_domain = true
 
 [[routes]]
-pattern = "eko-ciscenje.lukasulc.com"
+pattern = "eko-ciscenje.com"
 custom_domain = true
 
 [assets]
@@ -17,6 +17,7 @@ binding = "ASSETS"
 [vars]
 CONTACT_TO_EMAIL = "contact@eko-ciscenje.com"
 CONTACT_FROM_EMAIL = "no-reply@eko-ciscenje.com"
+TURNSTILE_HOSTNAMES = "eko-ciscenje.com"
 
 [[send_email]]
 name = "EMAIL"

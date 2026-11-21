@@ -1,4 +1,8 @@
 import { EmailMessage } from "cloudflare:email";
+import {
+  TurnstileConfigurationError,
+  verifyTurnstile,
+} from "./turnstile.js";
 
 const messages = {
   hr: {
@@ -6,12 +10,14 @@ const messages = {
     error:
       "Poruka se trenutno ne moze poslati. Molimo pokusajte kasnije ili nas kontaktirajte telefonom.",
     invalid: "Molimo unesite ime, ispravnu email adresu i poruku.",
+    verification: "Molimo dovrsite Turnstile provjeru i pokusajte ponovno.",
   },
   en: {
     success: "Thanks! Your message has been sent.",
     error:
       "Your message cannot be sent right now. Please try again later or contact us by phone.",
     invalid: "Please enter your name, a valid email address, and a message.",
+    verification: "Please complete the Turnstile check and try again.",
   },
 };
 
@@ -89,6 +95,27 @@ async function handleContact(request, env) {
   const formData = await request.formData();
   const locale = formData.get("locale") === "en" ? "en" : "hr";
   const copy = messages[locale];
+
+  try {
+    const verified = await verifyTurnstile(
+      formData.get("cf-turnstile-response"),
+      env,
+      request.headers.get("CF-Connecting-IP"),
+    );
+    if (!verified) {
+      return jsonResponse({ ok: false, message: copy.verification }, 400);
+    }
+  } catch (error) {
+    if (error instanceof TurnstileConfigurationError) {
+      console.error(error.message);
+      return jsonResponse({ ok: false, message: copy.error }, 503);
+    }
+
+    console.error("Turnstile verification request failed.", {
+      message: error instanceof Error ? error.message : String(error),
+    });
+    return jsonResponse({ ok: false, message: copy.error }, 502);
+  }
 
   if (clean(formData.get("website"), 200)) {
     return jsonResponse({ ok: true, message: copy.success });
