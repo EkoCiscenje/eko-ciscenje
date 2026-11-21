@@ -32,6 +32,30 @@ The Worker needs these environment variables:
 - `CONTACT_TO_EMAIL` - the verified inbox that receives contact messages.
 - `CONTACT_FROM_EMAIL` - the sender on your Email Routing domain, for example
   `kontakt@eko-ciscenje.com`.
+- `TURNSTILE_HOSTNAMES` - comma-separated allowed hostnames returned by
+  Turnstile Siteverify. The current Wrangler value covers `eko-ciscenje.com`
+  and `eko-ciscenje.com`; update it if the Worker serves other hostnames.
+- `TURNSTILE_SECRET` - the private Turnstile secret, configured as a Worker
+  secret (not in `wrangler.toml` or source control).
+
+The contact pages currently use Cloudflare's public Turnstile test sitekey.
+Replace the `data-sitekey` value in `src/pages/contact.astro` and
+`src/pages/en/contact.astro` with the production sitekey when ready. The browser
+posts the widget token to `/api/contact`; the Worker verifies it with Siteverify
+and only accepts responses whose hostname exactly matches
+`TURNSTILE_HOSTNAMES`. Missing configuration, rejected tokens, and verification
+failures all stop form processing.
+
+Set the secret in each Cloudflare environment that runs the Worker:
+
+```sh
+npx wrangler secret put TURNSTILE_SECRET
+```
+
+Set `TURNSTILE_HOSTNAMES` in `[vars]` in `wrangler.toml` or as a Worker
+environment variable in the Cloudflare dashboard. These must be runtime Worker
+settings; GitHub Actions secrets and variables only provide deployment-time
+credentials unless the workflow explicitly passes them to the Worker.
 
 ## Contact Form Email
 
@@ -57,6 +81,9 @@ Set these repository variables or secrets:
 
 - `CLOUDFLARE_API_TOKEN` as a secret
 - `CLOUDFLARE_ACCOUNT_ID` as a secret
+
+These deploy credentials do not configure `TURNSTILE_SECRET` or
+`TURNSTILE_HOSTNAMES` on the running Worker.
 
 ## Pricing and Google Sheets (disabled)
 
