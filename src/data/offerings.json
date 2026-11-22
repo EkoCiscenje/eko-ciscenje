@@ -44,6 +44,24 @@
       "available": true
     },
     {
+      "id": "office-deep-clean",
+      "categoryId": "Included",
+      "page": ["commercial"],
+      "name": {
+        "hr": "Dubinsko čišćenje ureda",
+        "en": "Office deep clean"
+      },
+      "description": {
+        "hr": "Dubinsko čišćenje ureda prilagođeno profesionalnim prostorima.",
+        "en": "Deep cleaning for offices designed for professional environments."
+      },
+      "badges": {
+        "hr": ["Profesionalno"],
+        "en": ["Professional"]
+      },
+      "available": true
+    },
+    {
       "id": "kitchen-cleaning",
       "categoryId": "Included",
       "page": ["residential", "commercial"],
@@ -76,24 +94,6 @@
       "badges": {
         "hr": ["Popularno"],
         "en": ["Popular"]
-      },
-      "available": true
-    },
-    {
-      "id": "office-deep-clean",
-      "categoryId": "Included",
-      "page": ["commercial"],
-      "name": {
-        "hr": "Dubinsko čišćenje ureda",
-        "en": "Office deep clean"
-      },
-      "description": {
-        "hr": "Dubinsko čišćenje ureda prilagođeno profesionalnim prostorima.",
-        "en": "Deep cleaning for offices designed for professional environments."
-      },
-      "badges": {
-        "hr": ["Profesionalno"],
-        "en": ["Professional"]
       },
       "available": true
     },
