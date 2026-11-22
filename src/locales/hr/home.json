@@ -52,18 +52,18 @@
     "title": "Što klijenti najčešće hvale",
     "items": [
       {
-        "quote": "Brzo su očistili tepih i sve je ponovno bilo poput novog.",
-        "name": "Ana",
+        "quote": "Tepih je očuvan i čist, a mrlje su potpuno nestale. Cijeli posao obavljen je u dogovorenom roku.",
+        "name": "Ana M.",
         "role": "Kućanstvo"
       },
       {
-        "quote": "Parno čišćenje je učinilo naš stan mirisnim i svježim bez jakih kemikalija.",
-        "name": "Ivan",
+        "quote": "Stan je nakon čišćenja ostao svjež i bez mirisa kemikalija. Pažljivo su očistili i mjesta koja se inače previđaju.",
+        "name": "Ivan P.",
         "role": "Ured"
       },
       {
-        "quote": "Profesionalna usluga, brzo i temeljito čišćenje svih površina.",
-        "name": "Marija",
+        "quote": "Čišćenje tapeciranog namještaja bilo je uredno i u kratkom roku. Rezultat je odmah bio vidljiv.",
+        "name": "Marija B.",
         "role": "Tapecirani namještaj"
       }
     ]

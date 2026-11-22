@@ -1,32 +1,32 @@
 {
   "landing": "Recenzije",
   "topper": "Iskustva klijenata",
-  "title": "Komentari o čišćenju i usluzi",
-  "p": "Klijenti traže parno čišćenje i ekološku njegu u Zagrebu, Samoboru, Velikoj Gorici, Zaprešiću, Svetoj Nedelji, Dugom Selu, Jastrebarskom, Karlovcu, Krapini i Sisku.",
+  "title": "Komentari klijenata o čišćenju",
+  "p": "U Zagrebu i okolici pružamo parno čišćenje i ekološku njegu prostora. Dolazimo u Samobor, Veliku Goricu, Zaprešić, Sveta Nedelja, Dugo Selo, Jastrebarsko, Karlovac, Krapinu i Sisak.",
   "testimonials": [
     {
-      "quote": "Eko Čišćenje je duboko očistilo naš tepih parom i prostor je mirisao svježe.",
-      "name": "Ana",
-      "role": "Kućanstvo"
+      "quote": "Dogovorili smo termine bez kompliciranja, a tepih je ispao puno svježiji nego što sam očekivala. Osjećaj je bio ugodan već sljedeći dan.",
+      "name": "Ana M.",
+      "role": "Čišćenje tepiha"
     },
     {
-      "quote": "Brza, profesionalna usluga parnog čišćenja za tapecirane stolice u uredu.",
-      "name": "Marko",
-      "role": "Ured"
+      "quote": "Stolice su uredno očišćene, a rad je obavljen u dogovorenom vremenu. Sjedišta su bila suha i spremna za korištenje odmah nakon dovršenog posla.",
+      "name": "Marko T.",
+      "role": "Čišćenje uređenog prostora"
     },
     {
-      "quote": "Ekološko čišćenje bez jakih kemikalija, izvrsni rezultati.",
-      "name": "Ivana",
-      "role": "Parno čišćenje"
+      "quote": "Željeli smo čišćenje koje neće ostaviti jak miris kemikalija. Rezultat je bio uredan i prirodniji nego što smo očekivali.",
+      "name": "Ivana K.",
+      "role": "Ekološko čišćenje"
     },
     {
-      "quote": "Madrac je nakon čišćenja parom bio čist i bez alergena.",
-      "name": "Petra",
-      "role": "Madrac"
+      "quote": "Madrac je nakon parnog čišćenja bio vrlo svjež i bez tipičnog mirisa prašine. Cijeli postupak objašnjen je prije početka.",
+      "name": "Petra L.",
+      "role": "Čišćenje madraca"
     },
     {
-      "quote": "Usluga je bila točna i detaljna, sofa izgleda kao nova.",
-      "name": "Tomislav",
+      "quote": "Sofa je dobila puno bolje mjesto u dnevnoj sobi nakon čišćenja. Očistili su i mrlje za koje nisam računao da će otići.",
+      "name": "Tomislav R.",
       "role": "Tapecirani namještaj"
     }
   ]
