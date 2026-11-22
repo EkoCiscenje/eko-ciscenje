@@ -1,6 +1,7 @@
 ---
 import type { AstroOfferingsData } from "../../googleSheets";
 import type { Locale } from "@config/siteSettings";
+import { getLocalizedRoute, useTranslations } from "@js/translationUtils";
 
 interface LocalizedText {
 	hr: string;
@@ -33,6 +34,7 @@ interface Props {
 }
 
 const { locale, page, categoryIds, offeringsData, intro } = Astro.props as Props;
+const t = useTranslations(locale);
 const categories = offeringsData.categories as CatalogCategory[];
 const items = offeringsData.items as OfferingItem[];
 const updatedAt = new Date(`${offeringsData.updatedAt}T12:00:00`);
@@ -54,18 +56,15 @@ const selectedCategories = categories.filter(
 		),
 );
 
-const unavailableLabel = locale === "hr" ? "Trenutno nedostupno" : "Currently unavailable";
-const featuredLabel = locale === "hr" ? "Preporuka" : "Recommended";
-const updatedLabel = locale === "hr" ? "Ažurirano" : "Updated";
 ---
 
 <section id="catalog-section" class="catalog-section">
 	<div class="catalog-container">
 		<div class="catalog-heading">
-			<span class="cs-topper">{locale === "hr" ? "Ponuda" : "Options"}</span>
-			<h2 class="cs-title">{locale === "hr" ? "Ponuda Eko Čišćenje" : "Eco Cleaning Options"}</h2>
+			<span class="cs-topper">{t("catalog:topper")}</span>
+			<h2 class="cs-title">{t("catalog:title")}</h2>
 			{intro && <p class="cs-text">{intro}</p>}
-			<p class="catalog-updated">{updatedLabel}: <time datetime={offeringsData.updatedAt}>{dateFormatter.format(updatedAt)}</time></p>
+			<p class="catalog-updated">{t("catalog:updated")}: <time datetime={offeringsData.updatedAt}>{dateFormatter.format(updatedAt)}</time></p>
 		</div>
 
 		<div class="catalog-categories">
@@ -85,21 +84,27 @@ const updatedLabel = locale === "hr" ? "Ažurirano" : "Updated";
 							<ul class="catalog-list">
 								{categoryItems.map((item) => (
 									<li class:list={["offering-item", { "is-muted": !item.available, "is-featured": item.featured }]}>
-										<div class="item-copy">
-											<div class="item-title-row">
-												<h4>{item.name[locale]}</h4>
-												{item.featured && <span class="badge badge-featured">{featuredLabel}</span>}
-												{!item.available && <span class="badge">{unavailableLabel}</span>}
-											</div>
-											<p>{item.description[locale]}</p>
-											{item.badges?.[locale]?.length > 0 && (
-												<div class="item-badges">
-													{item.badges[locale].map((badge) => (
-														<span class="badge">{badge}</span>
-													))}
+										<a
+											class="offering-link"
+											href={`${getLocalizedRoute(locale, "/contact")}#cs-form`}
+											aria-label={`${item.name[locale]} — ${t("catalog:offering-card-action")}`}
+										>
+											<div class="item-copy">
+												<div class="item-title-row">
+													<h4>{item.name[locale]}</h4>
+													{item.featured && <span class="badge badge-featured">{t("catalog:featured")}</span>}
+													{!item.available && <span class="badge">{t("catalog:unavailable")}</span>}
 												</div>
-											)}
-										</div>
+												<p>{item.description[locale]}</p>
+												{item.badges?.[locale]?.length > 0 && (
+													<div class="item-badges">
+														{item.badges[locale].map((badge) => (
+															<span class="badge">{badge}</span>
+														))}
+													</div>
+												)}
+											</div>
+										</a>
 									</li>
 								))}
 							</ul>
@@ -184,6 +189,14 @@ const updatedLabel = locale === "hr" ? "Ažurirano" : "Updated";
 		border: 1px solid rgba(26, 26, 26, 0.1);
 		border-radius: 8px;
 		box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+		transform-style: preserve-3d;
+		transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+	}
+
+	.offering-link {
+		display: block;
+		color: inherit;
+		text-decoration: none;
 	}
 
 	.offering-item.is-featured {
@@ -220,6 +233,12 @@ const updatedLabel = locale === "hr" ? "Ažurirano" : "Updated";
 		margin-top: 0.85rem;
 	}
 
+	.offering-link:focus-visible {
+		outline: 3px solid var(--primary);
+		outline-offset: 6px;
+		border-radius: 8px;
+	}
+
 	.badge {
 		font-size: 0.75rem;
 		line-height: 1;
@@ -247,6 +266,30 @@ const updatedLabel = locale === "hr" ? "Ažurirano" : "Updated";
 
 		.offering-item {
 			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		.catalog-categories {
+			perspective: 80rem;
+		}
+
+		.offering-item:hover,
+		.offering-item:focus-within {
+			transform: translateY(-0.35rem) rotateX(1deg) rotateY(-1deg);
+			border-color: color-mix(in srgb, var(--primary) 40%, #fff);
+			box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.12);
+		}
+	}
+
+	@media (hover: none), (pointer: coarse) {
+		.offering-item {
+			transform: none;
+			box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.06);
+		}
+
+		.offering-item:active {
+			transform: scale(0.985);
 		}
 	}
 
