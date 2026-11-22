@@ -1,6 +1,6 @@
 # Eko Čišćenje
 
-Eko Čišćenje is a steam cleaning business in Zagreb, Croatia.
+Eko Čišćenje is a steam cleaning business serving Zagreb and nearby cities in Croatia.
 
 Canonical website: https://eko-ciscenje.com/
 
@@ -8,6 +8,18 @@ Primary location:
 - Baburičina ulica 17, 10020 Zagreb, Croatia
 - Neighborhood: Dubrava, Novi Zagreb
 - Nearby landmarks: Bundek Lake, Bundek Park, children's playgrounds, local school and kindergarten
+
+Service areas:
+- Zagreb
+- Samobor
+- Velika Gorica
+- Zapresic
+- Sveta Nedelja
+- Dugo Selo
+- Jastrebarsko
+- Karlovac
+- Krapina
+- Sisak
 
 Main services:
 - Steam cleaning for carpets, upholstery, mattresses and soft surfaces

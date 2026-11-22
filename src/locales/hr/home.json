@@ -1,10 +1,10 @@
 {
   "layout": {
-    "title": "Profesionalno čišćenje suhom parom u Zagrebu",
-    "description": "Eko Čišćenje nudi ekološko parno čišćenje u Zagrebu za domove, urede, kuhinje, kupaonice, tepihe i tapecirani namještaj bez jakih kemikalija."
+    "title": "Profesionalno čišćenje suhom parom u Zagrebu i okolici",
+    "description": "Ekološko parno čišćenje u Zagrebu, Samoboru, Velikoj Gorici, Zaprešiću, Svetoj Nedelji, Dugom Selu, Jastrebarskom, Karlovcu, Krapini i Sisku. Čišćenje domova, ureda, tepiha i tapeciranog namještaja bez jakih kemikalija."
   },
   "hero": {
-    "topper": "Zagreb | Ekološko čišćenje | Parno čišćenje",
+    "topper": "Zagreb i okolica | Ekološko čišćenje | Parno čišćenje",
     "title": {
       "1": "Eko Čišćenje",
       "2": "Suhom Parom"
@@ -29,9 +29,9 @@
   ],
   "about": {
     "topper": "O nama",
-    "title": "Parno čišćenje u Zagrebu",
-    "p1": "Eko Čišćenje nudi parno i ekološko čišćenje u Zagrebu za domove, urede i tapecirani namještaj.",
-    "p2": "Naša usluga je praktična za stanare Zagreba i poslovne prostore koji žele brzo i profesionalno čišćenje u potpunosti bez kemikalija.",
+    "title": "Parno čišćenje u Zagrebu i okolici",
+    "p1": "Eko Čišćenje nudi parno i ekološko čišćenje u Zagrebu i okolnim gradovima za domove, urede i tapecirani namještaj.",
+    "p2": "Naša usluga je praktična za kućanstva i poslovne prostore u Zagrebu i okolici koji žele brzo i profesionalno čišćenje u potpunosti bez kemikalija.",
     "p3": "Koristimo paru za osvježenje i dezinfekciju prostora, smanjujući alergene i štiteći materijale.",
     "rank": "Ekološko čišćenje | Parno čišćenje",
     "cta": "Saznaj više"

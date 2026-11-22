@@ -1,8 +1,8 @@
 export const SITE = {
   title: "Eko Čišćenje",
-  tagline: "Profesionalno čišćenje parom u Zagrebu",
+  tagline: "Profesionalno čišćenje parom u Zagrebu i okolici",
   description:
-    "Eko Čišćenje nudi profesionalno parno čišćenje u Zagrebu za domove, urede, tepihe i tapecirani namještaj, s ekološkim pristupom u potpunosti bez kemikalija.",
+    "Eko Čišćenje nudi profesionalno parno čišćenje u Zagrebu i okolnim gradovima za domove, urede, tepihe i tapecirani namještaj, s ekološkim pristupom u potpunosti bez kemikalija.",
   url: "https://eko-ciscenje.com",
   author: "Eko Čišćenje",
   locale: "hr-HR",
