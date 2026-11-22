@@ -43,6 +43,15 @@
     ]
   },
   {
+    "key": "reviews",
+    "url": "/reviews",
+    "label": {
+      "hr": "Recenzije",
+      "en": "Reviews"
+    },
+    "children": []
+  },
+  {
     "key": "contact",
     "url": "/contact",
     "label": {

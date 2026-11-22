@@ -6,14 +6,14 @@ export const routeTranslations: Record<Locale, Record<string, string>> = {
     "projects": "usluge",
     "project-1": "ciscenje-stanova",
     "project-2": "ciscenje-uredskih-prostora",
-    // "reviews": "recenzije",
+    "reviews": "recenzije",
   },
   en: {
     "about": "about",
     "projects": "offerings",
     "project-1": "residential-cleaning",
     "project-2": "commercial-cleaning",
-    // "reviews": "reviews",
+    "reviews": "reviews",
   },
 };
 

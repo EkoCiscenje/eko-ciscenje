@@ -1,70 +1,70 @@
 {
   "layout": {
-    "title": "Professional steam cleaning in Zagreb",
-    "description": "Eko Čišćenje provides eco-friendly steam cleaning in Zagreb for homes, offices, kitchens, bathrooms, carpets and upholstered furniture without harsh chemicals."
+    "title": "Professional dry steam cleaning in Zagreb and nearby areas",
+    "description": "Eco-friendly steam cleaning in Zagreb, Samobor, Velika Gorica, Zapresic, Sveta Nedelja, Dugo Selo, Jastrebarsko, Karlovac, Krapina and Sisak. Cleaning for homes, offices, carpets and upholstered furniture without harsh chemicals."
   },
   "hero": {
-    "topper": "Zagreb | Eco Cleaning | Steam Cleaning",
+    "topper": "Zagreb & nearby areas | Eco Cleaning | Steam Cleaning",
     "title": {
       "1": "Eko Čišćenje",
-      "2": "Professional Steam Cleaning"
+      "2": "Dry Steam Cleaning"
     },
-    "p1": "Number 1 in Croatia for general ecological cleaning of households and business premises entirely without chemicals.",
+    "p1": "Number 1 in Croatia for general eco-friendly cleaning of homes and business premises using dry steam machines, completely without chemicals.",
     "cta1": "View services",
     "cta2": "Find us"
   },
   "services": [
     {
       "heading": "Steam Cleaning",
-      "p": "Deep steam cleaning for carpets, upholstery, mattresses and soft surfaces."
+      "p": "Deep steam cleaning of carpets, upholstered furniture and mattresses."
     },
     {
-      "heading": "Eco Home Care",
-      "p": "Gentle eco-friendly cleaning for homes and offices without harsh chemicals."
+      "heading": "Eco Care",
+      "p": "Gentle cleaning of homes and offices without harsh chemicals, perfect for pets and children."
     },
     {
       "heading": "Sanitization",
-      "p": "Professional sanitization and allergen reduction for a healthier living space."
+      "p": "Professional sanitization and allergen reduction for a healthier space and a more comfortable life."
     }
   ],
   "about": {
     "topper": "About Us",
-    "title": "Steam cleaning services in Zagreb",
-    "p1": "Eko Čišćenje provides steam and eco-cleaning services in Zagreb for homes, offices and upholstered furniture.",
-    "p2": "The location is practical for Zagreb residents and businesses looking for fast, professional cleaning without harsh chemicals.",
-    "p3": "We use steam to refresh and sanitize spaces, reducing allergens and protecting your surfaces.",
-    "rank": "Eco cleaning and steam cleaning",
-    "cta": "More about us"
+    "title": "Steam Cleaning in Zagreb and Nearby Areas",
+    "p1": "Eko Čišćenje offers steam and eco-friendly cleaning in Zagreb and nearby cities for homes, offices and upholstered furniture.",
+    "p2": "Our service is practical for households and business premises in Zagreb and nearby areas that want fast, professional cleaning completely without chemicals.",
+    "p3": "We use steam to refresh and disinfect spaces, reducing allergens and protecting materials.",
+    "rank": "Eco Cleaning | Steam Cleaning",
+    "cta": "Learn More"
   },
   "extra": {
     "topper": "Services",
-    "title": "Clean, fresh and healthy spaces",
-    "p1": "We refresh upholstery, carpets and mattresses using steam cleaning and eco-safe care.",
-    "p2": "Perfect for homeowners and businesses who want a hygienic, fast and reliable cleaning solution."
+    "title": "Clean, Fresh and Healthy Spaces",
+    "p1": "We refresh upholstered furniture, carpets and mattresses with steam cleaning.",
+    "p2": "Ideal for homeowners and business premises that want hygienic and reliable cleaning."
   },
   "portfolio": {
-    "topper": "Service Highlights",
-    "title": "Clean, refreshed spaces with professional steam care",
+    "topper": "Offers",
+    "title": "Clean, renewed spaces with professional steam care",
     "cta": "View services"
   },
   "testimonials": {
     "topper": "Reviews",
-    "title": "What clients often mention",
+    "title": "What clients praise most",
     "items": [
       {
-        "quote": "The steam cleaning made our sofa look and smell brand new.",
-        "name": "Anna",
-        "role": "Home cleaning"
+        "quote": "They cleaned the carpet quickly and everything looked like new again.",
+        "name": "Ana",
+        "role": "Household"
       },
       {
-        "quote": "Professional, fast and friendly service for our office upholstery.",
-        "name": "Mark",
-        "role": "Office cleaning"
+        "quote": "Steam cleaning made our apartment smell and feel fresh without harsh chemicals.",
+        "name": "Ivan",
+        "role": "Office"
       },
       {
-        "quote": "Eco-friendly cleaning without harsh chemicals, excellent results.",
-        "name": "Emily",
-        "role": "Steam cleaning"
+        "quote": "Professional service, fast and thorough cleaning of all surfaces.",
+        "name": "Marija",
+        "role": "Upholstered Furniture"
       }
     ]
   }

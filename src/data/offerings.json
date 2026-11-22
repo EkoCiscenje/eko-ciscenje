@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-02",
+  "updatedAt": "2026-11-22",
   "categories": [
     {
       "id": "Included",
@@ -44,6 +44,24 @@
       "available": true
     },
     {
+      "id": "office-deep-clean",
+      "categoryId": "Included",
+      "page": ["commercial"],
+      "name": {
+        "hr": "Dubinsko čišćenje ureda",
+        "en": "Office deep clean"
+      },
+      "description": {
+        "hr": "Dubinsko čišćenje ureda prilagođeno profesionalnim prostorima.",
+        "en": "Deep cleaning for offices designed for professional environments."
+      },
+      "badges": {
+        "hr": ["Profesionalno"],
+        "en": ["Professional"]
+      },
+      "available": true
+    },
+    {
       "id": "kitchen-cleaning",
       "categoryId": "Included",
       "page": ["residential", "commercial"],
@@ -80,42 +98,6 @@
       "available": true
     },
     {
-      "id": "office-deep-clean",
-      "categoryId": "Included",
-      "page": ["commercial"],
-      "name": {
-        "hr": "Dubinsko čišćenje ureda",
-        "en": "Office deep clean"
-      },
-      "description": {
-        "hr": "Dubinsko čišćenje ureda prilagođeno profesionalnim prostorima.",
-        "en": "Deep cleaning for offices designed for professional environments."
-      },
-      "badges": {
-        "hr": ["Profesionalno"],
-        "en": ["Professional"]
-      },
-      "available": true
-    },
-    {
-      "id": "garage-cleaning",
-      "categoryId": "Optional",
-      "page": ["residential"],
-      "name": {
-        "hr": "Čišćenje garaže",
-        "en": "Garage cleaning"
-      },
-      "description": {
-        "hr": "Čišćenje i organizacija garažnog prostora.",
-        "en": "Cleaning and organizing garage space."
-      },
-      "badges": {
-        "hr": ["Dodaci"],
-        "en": ["Add-on"]
-      },
-      "available": true
-    },
-    {
       "id": "car-interior-cleaning",
       "categoryId": "Optional",
       "page": ["residential"],
@@ -148,6 +130,60 @@
       "badges": {
         "hr": ["Dodaci"],
         "en": ["Add-on"]
+      },
+      "available": true
+    },
+    {
+      "id": "boat-cleaning",
+      "categoryId": "Optional",
+      "page": ["residential", "commercial"],
+      "name": {
+        "hr": "Čišćenje brodova",
+        "en": "Boat cleaning"
+      },
+      "description": {
+        "hr": "Čišćenje palube i unutarnjih površina brodova parom i ekološkim postupkom.",
+        "en": "Steam and eco-friendly cleaning of boat decks and interior surfaces."
+      },
+      "badges": {
+        "hr": ["Cijena: po dogovoru"],
+        "en": ["Price: negotiated"]
+      },
+      "available": true
+    },
+    {
+      "id": "pharmacy-cleaning",
+      "categoryId": "Optional",
+      "page": ["commercial"],
+      "name": {
+        "hr": "Čišćenje ljekarni",
+        "en": "Pharmacy cleaning"
+      },
+      "description": {
+        "hr": "Pouzdano čišćenje ljekarni i higijenski osjetljivih poslovnih prostora.",
+        "en": "Reliable cleaning of pharmacies and hygiene-sensitive commercial spaces."
+      },
+      "badges": {
+        "hr": ["Cijena: po dogovoru"],
+        "en": ["Price: negotiated"]
+      },
+      "available": true
+    },
+    {
+      "id": "special-commercial-cleaning",
+      "categoryId": "Optional",
+      "page": ["commercial"],
+      "name": {
+        "hr": "Čišćenje drugih posebnih prostora",
+        "en": "Cleaning of other specialized spaces"
+      },
+      "description": {
+        "hr": "Čišćenje ostalih posebnih i sličnih kategorija poslovnih prostora prema dogovoru.",
+        "en": "Cleaning of other specialized and similar commercial spaces by agreement."
+      },
+      "badges": {
+        "hr": ["Cijena: po dogovoru"],
+        "en": ["Price: negotiated"]
       },
       "available": true
     }

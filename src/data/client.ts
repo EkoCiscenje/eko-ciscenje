@@ -1,11 +1,21 @@
 export const SITE = {
   title: "Eko Čišćenje",
-  tagline: "Profesionalno čišćenje parom u Zagrebu",
+  tagline: "Profesionalno čišćenje parom u Zagrebu i okolici",
   description:
-    "Eko Čišćenje nudi profesionalno parno čišćenje u Zagrebu za domove, urede, tepihe i tapecirani namještaj, s ekološkim pristupom u potpunosti bez kemikalija.",
+    "Eko Čišćenje nudi profesionalno parno čišćenje u Zagrebu i okolnim gradovima za domove, urede, tepihe i tapecirani namještaj, s ekološkim pristupom u potpunosti bez kemikalija.",
   url: "https://eko-ciscenje.com",
   author: "Eko Čišćenje",
   locale: "hr-HR",
+};
+
+type BusinessSocials = {
+  facebook?: string;
+  instagram?: string;
+};
+
+const socials: BusinessSocials = {
+  facebook: "https://www.facebook.com/profile.php?id=61596459915846#",
+  // instagram: "https://www.instagram.com/",
 };
 
 export const BUSINESS = {
@@ -22,10 +32,7 @@ export const BUSINESS = {
     zip: "10020",
     mapLink: "https://maps.app.goo.gl/xX5ZVQLiH57prSWy8",
   },
-  socials: {
-    facebook: "https://www.facebook.com/profile.php?id=61596459915846#",
-    instagram: "https://www.instagram.com/",
-  },
+  socials,
 };
 
 export const OG = {

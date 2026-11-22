@@ -9,6 +9,9 @@ import Settings from "@components/Settings/Settings.astro";
 import logoBlack from "@assets/svgs/logo-black.svg";
 
 const locale = getLocaleFromUrl(Astro.url);
+const instagram = BUSINESS.socials.instagram;
+const facebook = BUSINESS.socials.facebook;
+const hasSocialLinks = instagram || facebook;
 ---
 
 <header id="cs-navigation">
@@ -73,28 +76,40 @@ const locale = getLocaleFromUrl(Astro.url);
 						))
 					}
 				</ul>
-				<div class="cs-socials" aria-label="Social links">
-					<a href={BUSINESS.socials.instagram} class="cs-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-						<Icon name="instagram" />
-					</a>
-					<a href={BUSINESS.socials.facebook} class="cs-social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-						<Icon name="facebook" />
-					</a>
-				</div>
+				{hasSocialLinks && (
+					<div class="cs-socials" aria-label="Social links">
+						{instagram && (
+							<a href={instagram} class="cs-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+								<Icon name="instagram" />
+							</a>
+						)}
+						{facebook && (
+							<a href={facebook} class="cs-social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+								<Icon name="facebook" />
+							</a>
+						)}
+					</div>
+				)}
 				<!-- shown on mobile menu by default  -->
 				<div class="cs-shown cs-settings">
 					<Settings />
 				</div>
 			</div>
 		</nav>
-		<div class="cs-hidden cs-socials cs-socials-desktop" aria-label="Social links">
-			<a href={BUSINESS.socials.instagram} class="cs-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-				<Icon name="instagram" />
-			</a>
-			<a href={BUSINESS.socials.facebook} class="cs-social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-				<Icon name="facebook" />
-			</a>
-		</div>
+		{hasSocialLinks && (
+			<div class="cs-hidden cs-socials cs-socials-desktop" aria-label="Social links">
+				{instagram && (
+					<a href={instagram} class="cs-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+						<Icon name="instagram" />
+					</a>
+				)}
+				{facebook && (
+					<a href={facebook} class="cs-social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+						<Icon name="facebook" />
+					</a>
+				)}
+			</div>
+		)}
 		<!-- shown on desktop menu by default  -->
 		<div class="cs-hidden cs-settings">
 			<Settings />

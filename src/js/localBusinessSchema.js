@@ -60,6 +60,47 @@ export function getLocalBusinessSchema(origin) {
             name: "Zagreb",
           },
           {
+            "@type": "City",
+            name: "Samobor",
+          },
+          {
+            "@type": "City",
+            name: "Velika Gorica",
+          },
+          {
+            "@type": "City",
+            name: "Zapresic",
+            alternateName: "Zaprešić",
+          },
+          {
+            "@type": "City",
+            name: "Sveta Nedelja",
+          },
+          {
+            "@type": "City",
+            name: "Dugo Selo",
+          },
+          {
+            "@type": "City",
+            name: "Jastrebarsko",
+          },
+          {
+            "@type": "City",
+            name: "Karlovac",
+          },
+          {
+            "@type": "City",
+            name: "Krapina",
+          },
+          {
+            "@type": "City",
+            name: "Sisak",
+          },
+          {
+            "@type": "AdministrativeArea",
+            name: "Zagreb and surrounding area",
+          },
+          {
             "@type": "Place",
             name: "Sredisce",
             alternateName: "Središće",
@@ -74,7 +115,7 @@ export function getLocalBusinessSchema(origin) {
           },
         ],
         knowsAbout: [
-          "steam cleaning in Zagreb",
+          "steam cleaning in Zagreb and surrounding area",
           "eco-friendly cleaning",
           "carpet cleaning",
           "upholstery cleaning",
@@ -83,7 +124,7 @@ export function getLocalBusinessSchema(origin) {
           "deep cleaning without chemicals",
         ],
         keywords:
-          "Eko Čišćenje, Eko Ciscenje, čišćenje parom Zagreb, parno čišćenje Zagreb, tepih čišćenje Zagreb, uredsko čišćenje Zagreb, ekološko čišćenje",
+          "Eko Čišćenje, Eko Ciscenje, čišćenje parom Zagreb, čišćenje parom Samobor, čišćenje parom Velika Gorica, čišćenje parom Zaprešić, čišćenje parom Sveta Nedelja, čišćenje parom Dugo Selo, čišćenje parom Jastrebarsko, čišćenje parom Karlovac, čišćenje parom Krapina, čišćenje parom Sisak, tepih čišćenje, uredsko čišćenje, ekološko čišćenje",
         sameAs,
         inLanguage: SITE.locale,
       },
