@@ -8,6 +8,16 @@ export const SITE = {
   locale: "hr-HR",
 };
 
+type BusinessSocials = {
+  facebook?: string;
+  instagram?: string;
+};
+
+const socials: BusinessSocials = {
+  facebook: "https://www.facebook.com/profile.php?id=61596459915846#",
+  // instagram: "https://www.instagram.com/",
+};
+
 export const BUSINESS = {
   name: "Eko Čišćenje",
   email: "contact@eko-ciscenje.com",
@@ -22,10 +32,7 @@ export const BUSINESS = {
     zip: "10020",
     mapLink: "https://maps.app.goo.gl/xX5ZVQLiH57prSWy8",
   },
-  socials: {
-    facebook: "https://www.facebook.com/profile.php?id=61596459915846#",
-    instagram: "https://www.instagram.com/",
-  },
+  socials,
 };
 
 export const OG = {
