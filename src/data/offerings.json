@@ -98,24 +98,6 @@
       "available": true
     },
     {
-      "id": "garage-cleaning",
-      "categoryId": "Optional",
-      "page": ["residential"],
-      "name": {
-        "hr": "Čišćenje garaže",
-        "en": "Garage cleaning"
-      },
-      "description": {
-        "hr": "Čišćenje i organizacija garažnog prostora.",
-        "en": "Cleaning and organizing garage space."
-      },
-      "badges": {
-        "hr": ["Dodaci"],
-        "en": ["Add-on"]
-      },
-      "available": true
-    },
-    {
       "id": "car-interior-cleaning",
       "categoryId": "Optional",
       "page": ["residential"],
