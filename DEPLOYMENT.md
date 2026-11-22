@@ -35,8 +35,8 @@ The Worker needs these environment variables:
 - `TURNSTILE_HOSTNAMES` - comma-separated allowed hostnames returned by
   Turnstile Siteverify. The current Wrangler value covers `eko-ciscenje.com`
   and `eko-ciscenje.com`; update it if the Worker serves other hostnames.
-- `TURNSTILE_SECRET` - the private Turnstile secret, configured as a Worker
-  secret (not in `wrangler.toml` or source control).
+- `TURNSTILE_SECRET` - the Turnstile widget secret. Add it as a Worker secret
+  in the Cloudflare dashboard; never put it in `wrangler.toml` or client code.
 
 The contact pages currently use Cloudflare's public Turnstile test sitekey.
 Replace the `data-sitekey` value in `src/pages/contact.astro` and
@@ -81,9 +81,6 @@ Set these repository variables or secrets:
 
 - `CLOUDFLARE_API_TOKEN` as a secret
 - `CLOUDFLARE_ACCOUNT_ID` as a secret
-
-These deploy credentials do not configure `TURNSTILE_SECRET` or
-`TURNSTILE_HOSTNAMES` on the running Worker.
 
 ## Pricing and Google Sheets (disabled)
 
