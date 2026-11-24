@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { getOfferingsData } from "../googleSheets";
+import { getOfferingsData } from "../offerings";
 
 export async function getCurrentOfferingsHash(): Promise<string> {
   const offeringsItems = await getOfferingsData();

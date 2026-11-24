@@ -1,0 +1,46 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CTA from "@components/CTA/CTA.astro";
+import Banner from "@components/Banner/Banner.astro";
+import CatalogSection from "@components/Catalog/CatalogSection.astro";
+import type { Locale } from "@config/siteSettings";
+import type { AstroOfferingsData, OfferingsPage } from "../../offerings";
+import boatImage from "@assets/images/eko-ciscenje/EV-ATLANTIS-steam-cleaner.jpeg";
+import pharmacyImage from "@assets/images/eko-ciscenje/Beautifully-designed-visual-EV-Atlantis.jpg";
+import { getOfferingsData, getOfferingsPageCategoryIds } from "../../offerings";
+
+interface Props {
+	locale: Locale;
+	page: OfferingsPage;
+}
+
+const { locale, page } = Astro.props as Props;
+const offeringsData: AstroOfferingsData = await getOfferingsData();
+const primaryOffering = offeringsData.items.find(
+	(item) => item.categoryId === "Included" && item.page?.includes(page),
+);
+if (!primaryOffering) {
+	throw new Error(`Missing Included offering for catalog page ${page}`);
+}
+const title = primaryOffering.name[locale];
+const description = primaryOffering.description[locale];
+const images = {
+	boat: boatImage,
+	pharmacy: pharmacyImage,
+	residential: boatImage,
+	commercial: pharmacyImage,
+};
+const categoryIds = getOfferingsPageCategoryIds(offeringsData, page);
+---
+
+<BaseLayout title={title} description={description}>
+	<Banner title={title} image={images[page]} />
+	<CatalogSection
+		locale={locale}
+		page={page}
+		categoryIds={categoryIds}
+		offeringsData={offeringsData}
+		intro={description}
+	/>
+	<CTA />
+</BaseLayout>
