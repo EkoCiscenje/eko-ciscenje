@@ -20,7 +20,6 @@ const socials: BusinessSocials = {
 
 export const BUSINESS = {
   name: "Eko Čišćenje",
-  email: "contact@eko-ciscenje.com",
   phoneForTel: "+385914478191",
   phoneFormatted: "+385 91 447 8191",
   logo: "/favicon.svg",

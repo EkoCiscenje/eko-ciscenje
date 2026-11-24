@@ -10,6 +10,8 @@ import logo from "@assets/svgs/logo-white.svg";
 const locale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(locale);
 const currentYear = getCurrentYear();
+const serviceLinks =
+  navData.find((entry: any) => entry.key === "projects")?.children ?? [];
 ---
 
 <!-- ============================================ --><!--                   Footer                     --><!-- ============================================ -->
@@ -42,8 +44,17 @@ const currentYear = getCurrentYear();
           <li>
             <h2>{t("footer.services")}</h2>
           </li>
-          <li>{t("project-1")}</li>
-          <li>{t("project-2")}</li>
+          {
+            serviceLinks.map((entry: any) => (
+              <li>
+                {entry.url && (
+                  <a href={getLocalizedRoute(locale, entry.url)}>
+                    {entry.label[locale]}
+                  </a>
+                )}
+              </li>
+            ))
+          }
         </ul>
         <ul>
           <li>
@@ -51,11 +62,7 @@ const currentYear = getCurrentYear();
           </li>
           <li>
             <a href={getLocalizedRoute(locale,"/contact")}>
-              {BUSINESS.address.lineOne}<br />
-              {BUSINESS.address.lineTwo && <>{BUSINESS.address.lineTwo}<br /></>}
-              {BUSINESS.address.city}
-              {BUSINESS.address.state && ` ${BUSINESS.address.state}`}
-              {BUSINESS.address.zip}
+              {t("footer.click")}
             </a>
           </li>
           <li>
@@ -64,11 +71,15 @@ const currentYear = getCurrentYear();
               {BUSINESS.phoneFormatted}
             </a>
           </li>
-          {BUSINESS.email && (
-            <li>
-              <a href={`mailto:${BUSINESS.email}`}>{t("footer.click")}</a>
-            </li>
-          )}
+          <li>
+            <a href={BUSINESS.address.mapLink} target="_blank" rel="noopener">
+              {BUSINESS.address.lineOne}<br />
+              {BUSINESS.address.lineTwo && <>{BUSINESS.address.lineTwo}<br /></>}
+              {BUSINESS.address.city}
+              {BUSINESS.address.state && ` ${BUSINESS.address.state}`}
+              {BUSINESS.address.zip}
+            </a>
+          </li>
         </ul>
       </div>
     </section>
