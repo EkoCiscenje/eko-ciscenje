@@ -4,15 +4,19 @@ export const routeTranslations: Record<Locale, Record<string, string>> = {
   hr: {
     "about": "o-nama",
     "projects": "usluge",
-    "project-1": "ciscenje-stanova",
-    "project-2": "ciscenje-uredskih-prostora",
+    "residential": "ciscenje-stanova",
+    "commercial": "ciscenje-uredskih-prostora",
+    "pharmacy": "ciscenje-ljekarni",
+    "boat": "ciscenje-brodova",
     "reviews": "recenzije",
   },
   en: {
     "about": "about",
     "projects": "offerings",
-    "project-1": "residential-cleaning",
-    "project-2": "commercial-cleaning",
+    "residential": "residential-cleaning",
+    "commercial": "commercial-cleaning",
+    "pharmacy": "pharmacy-cleaning",
+    "boat": "boat-cleaning",
     "reviews": "reviews",
   },
 };

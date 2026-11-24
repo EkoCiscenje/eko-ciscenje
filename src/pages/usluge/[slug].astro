@@ -1,0 +1,19 @@
+---
+import CatalogPage from "@components/Catalog/CatalogPage.astro";
+import type { Locale } from "@config/siteSettings";
+import type { OfferingsPage } from "../../offerings";
+import { getCatalogPagePaths } from "../../offerings";
+
+interface Props {
+	locale: Locale;
+	page: OfferingsPage;
+}
+
+export async function getStaticPaths() {
+	return getCatalogPagePaths("hr");
+}
+
+const { locale, page } = Astro.props as Props;
+---
+
+<CatalogPage locale={locale} page={page} />

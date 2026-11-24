@@ -14,8 +14,14 @@ Pages Functions.
    binding.
 4. The contact form sends email through Cloudflare Email Routing's `EMAIL`
    binding.
-5. The scheduled Google Sheets integration is disabled. Deployments use
-   `src/data/offerings.json` as the local offerings source.
+5. Catalog data comes from `src/data/offerings.json`. Google Sheets is not used
+   to load or refresh offerings; it may be considered as a future integration.
+
+Catalog project routes are generated from the unique values in `page` across
+`src/data/offerings.json` items. Each item's `categoryId` groups it under
+Included or Optional on every project selected by its `page` value. Page IDs
+map to localized URL segments in `src/config/routeTranslations.ts`. The first
+Included item supplies that project's localized title and description.
 
 ## Cloudflare Worker Settings
 
@@ -82,27 +88,16 @@ Set these repository variables or secrets:
 - `CLOUDFLARE_API_TOKEN` as a secret
 - `CLOUDFLARE_ACCOUNT_ID` as a secret
 
-## Pricing and Google Sheets (disabled)
+## Catalog Data and Pricing
 
-Pricing display and Google Sheets synchronization are intentionally disabled.
-The active implementation reads `src/data/offerings.json`, ignores all sheet
-and environment configuration, and has no price markup in the catalog.
+The catalog is built from `src/data/offerings.json`. The site does not fetch or
+refresh offerings from Google Sheets, and no Sheets credentials or scheduled
+checks are used. A Sheets integration may be considered in the future, but it
+would require a separate implementation and deployment workflow.
 
-To re-enable Google Sheets:
-
-1. Set `GOOGLE_SHEETS_ENABLED = true` in `src/googleSheets.ts`.
-2. Restore the CSV fetch/parser and set `SPREADSHEET_ID` and optionally
-   `GOOGLE_SHEETS_GID` in the deployment environment.
-3. Restore the Google Sheet change check in `scripts/deploy-check.mjs`.
-4. Add and review the required sheet columns and fallback behavior.
-
-To re-enable prices, do it as a separate change:
-
-1. Set `PRICE_DISPLAY_ENABLED = true` in `src/googleSheets.ts`.
-2. Restore price fields in `src/schemas.ts`, `src/data/offerings.json`,
-   `public/admin/config.yml`, and `src/components/Catalog/CatalogSection.astro`.
-3. Re-enable deployment validation and change hashing only after the schema,
-   CMS, and UI are consistent.
+Prices are also not displayed. Restoring price support is a separate change
+that must update the schema, local data, CMS, catalog UI, and deployment checks
+together.
 
 The API token must be able to deploy Workers.
 
