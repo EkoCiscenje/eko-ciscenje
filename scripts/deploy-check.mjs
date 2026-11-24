@@ -1,12 +1,11 @@
 /*
- * DEPLOY CHANGE CHECK - PRICING / GOOGLE SHEETS DISABLED
+ * DEPLOY CHANGE CHECK - LOCAL OFFERINGS / PRICING DISABLED
  *
- * This script hashes only src/data/offerings.json. It does not contact Google
- * Sheets and does not read or validate price fields.
+ * This script hashes only src/data/offerings.json. Google Sheets is not used
+ * to load or refresh catalog data, and price fields are not validated.
  *
- * To re-enable scheduled Google Sheets checks, restore the old implementation
- * from version control, add SPREADSHEET_ID and GOOGLE_SHEETS_GID variables,
- * and keep it behind a separate, explicit enable gate.
+ * A future Sheets integration would need a separate loader and deployment
+ * workflow; no Sheets credentials or scheduled checks are used here.
  * Re-enable pricing only in a separate change with CMS and UI field restoration.
  */
 import { createHash } from "node:crypto";

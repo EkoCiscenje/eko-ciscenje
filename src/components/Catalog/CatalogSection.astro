@@ -1,5 +1,5 @@
 ---
-import type { AstroOfferingsData } from "../../googleSheets";
+import type { AstroOfferingItem, AstroOfferingsData, OfferingsPage } from "../../offerings";
 import type { Locale } from "@config/siteSettings";
 import { getLocalizedRoute, useTranslations } from "@js/translationUtils";
 
@@ -14,20 +14,9 @@ interface CatalogCategory {
 	description: LocalizedText;
 }
 
-interface OfferingItem {
-	id: string;
-	categoryId: string;
-	page?: Array<"commercial" | "residential">;
-	name: LocalizedText;
-	description: LocalizedText;
-	badges: Record<Locale, string[]>;
-	available: boolean;
-	featured?: boolean;
-}
-
 interface Props {
 	locale: Locale;
-	page: "commercial" | "residential";
+	page: OfferingsPage;
 	categoryIds: string[];
 	offeringsData: AstroOfferingsData;
 	intro?: string;
@@ -36,7 +25,7 @@ interface Props {
 const { locale, page, categoryIds, offeringsData, intro } = Astro.props as Props;
 const t = useTranslations(locale);
 const categories = offeringsData.categories as CatalogCategory[];
-const items = offeringsData.items as OfferingItem[];
+const items = offeringsData.items as AstroOfferingItem[];
 const updatedAt = new Date(`${offeringsData.updatedAt}T12:00:00`);
 const dateFormatter = new Intl.DateTimeFormat(locale === "hr" ? "hr-HR" : "en-US", {
 	day: "numeric",
@@ -44,15 +33,16 @@ const dateFormatter = new Intl.DateTimeFormat(locale === "hr" ? "hr-HR" : "en-US
 	year: "numeric",
 });
 const pageMatches = (
-	itemPage: OfferingItem["page"],
-	currentPage: "commercial" | "residential",
+	itemPage: AstroOfferingItem["page"],
+	currentPage: OfferingsPage,
 ): boolean => Array.isArray(itemPage) && itemPage.includes(currentPage);
-
+const matchesCatalogFilters = (item: AstroOfferingItem): boolean =>
+	pageMatches(item.page, page);
 const selectedCategories = categories.filter(
 	(category) =>
 		categoryIds.includes(category.id) &&
 		items.some(
-			(item) => category.id === item.categoryId && pageMatches(item.page, page),
+			(item) => category.id === item.categoryId && matchesCatalogFilters(item),
 		),
 );
 
@@ -71,7 +61,7 @@ const selectedCategories = categories.filter(
 			{
 				selectedCategories.map((category) => {
 					const categoryItems = items
-						.filter((item) => category.id === item.categoryId && pageMatches(item.page, page))
+						.filter((item) => category.id === item.categoryId && matchesCatalogFilters(item))
 						;
 
 					return (
@@ -87,7 +77,6 @@ const selectedCategories = categories.filter(
 										<a
 											class="offering-link"
 											href={`${getLocalizedRoute(locale, "/contact")}#cs-form`}
-											aria-label={`${item.name[locale]} — ${t("catalog:offering-card-action")}`}
 										>
 											<div class="item-copy">
 												<div class="item-title-row">

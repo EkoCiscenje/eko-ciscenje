@@ -1,19 +1,17 @@
 import fallbackOfferingsData from "./data/offerings.json";
 import type { OfferingCategory } from "./schemas";
+import type { Locale } from "./config/siteSettings";
+import { routeTranslations } from "./config/routeTranslations";
 
 /*
- * PRICING / GOOGLE SHEETS DISABLED
+ * LOCAL OFFERINGS / PRICING DISABLED
  * --------------------------------
- * Prices and Google Sheets are deliberately not used by the site.
- * getOfferingsData() always reads src/data/offerings.json.
+ * The active catalog is maintained in src/data/offerings.json.
+ * Google Sheets is not used to load or refresh catalog data.
  *
- * Re-enable in src/googleSheets.ts only after restoring the integration and
- * price fields in this file, src/schemas.ts, public/admin/config.yml,
- * src/components/Catalog/CatalogSection.astro and scripts/deploy-check.mjs.
- * Set GOOGLE_SHEETS_ENABLED and PRICE_DISPLAY_ENABLED separately; neither
- * option is enabled by an environment variable.
+ * A future Sheets integration would require a separate implementation and
+ * review. Price fields are likewise not currently supported.
  */
-export const GOOGLE_SHEETS_ENABLED = false;
 export const PRICE_DISPLAY_ENABLED = false;
 
 interface LocalizedText {
@@ -21,6 +19,7 @@ interface LocalizedText {
   en: string;
 }
 
+export type OfferingsPage = "commercial" | "residential" | "boat" | "pharmacy";
 export interface AstroOfferingsCategory {
   id: string;
   title: LocalizedText;
@@ -48,17 +47,22 @@ export interface AstroOfferingsData {
   items: AstroOfferingItem[];
 }
 
-type OfferingsPage = "commercial" | "residential";
-
 const offeringsPageCategories: Record<OfferingsPage, OfferingCategory[]> = {
   commercial: ["Included", "Optional"],
   residential: ["Included", "Optional"],
+  boat: ["Included", "Optional"],
+  pharmacy: ["Included", "Optional"],
 };
 
 let offeringsDataPromise: Promise<AstroOfferingsData> | undefined;
 
 function isOfferingsPage(value: unknown): value is OfferingsPage {
-  return value === "commercial" || value === "residential";
+  return (
+    value === "commercial" ||
+    value === "residential" ||
+    value === "boat" ||
+    value === "pharmacy"
+  );
 }
 
 function isOfferingsPageArray(value: unknown): value is OfferingsPage[] {
@@ -111,12 +115,27 @@ export function getFallbackOfferingsData(): AstroOfferingsData {
 }
 
 async function loadAstroOfferingsData(): Promise<AstroOfferingsData> {
-  // Local-only by design. GOOGLE_SHEETS_ENABLED and PRICE_DISPLAY_ENABLED
-  // above are hard disabled and must not be changed accidentally.
   return getFallbackOfferingsData();
 }
 
 export async function getOfferingsData(): Promise<AstroOfferingsData> {
   offeringsDataPromise ??= loadAstroOfferingsData();
   return offeringsDataPromise;
+}
+
+export async function getCatalogPagePaths(locale: Locale) {
+  const offeringsData = await getOfferingsData();
+  const pages = [...new Set(offeringsData.items.flatMap((item) => item.page ?? []))];
+
+  return pages.map((page) => {
+    const slug = routeTranslations[locale][page];
+    if (!slug) {
+      throw new Error(`Missing ${locale} route translation for ${page}`);
+    }
+
+    return {
+      params: { slug },
+      props: { locale, page },
+    };
+  });
 }

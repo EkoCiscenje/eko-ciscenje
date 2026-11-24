@@ -118,14 +118,14 @@
     {
       "id": "after-hours-office-cleaning",
       "categoryId": "Optional",
-      "page": ["commercial"],
+      "page": ["commercial", "pharmacy"],
       "name": {
         "hr": "Nakon radnog vremena",
         "en": "After-hours cleaning"
       },
       "description": {
-        "hr": "Dubinsko čišćenje ureda izvan radnog vremena.",
-        "en": "Deep cleaning of the office outside business hours."
+        "hr": "Čišćenje prostora izvan radnog vremena.",
+        "en": "Cleaning outside business hours."
       },
       "badges": {
         "hr": ["Dodaci"],
@@ -135,8 +135,8 @@
     },
     {
       "id": "boat-cleaning",
-      "categoryId": "Optional",
-      "page": ["residential", "commercial"],
+      "categoryId": "Included",
+      "page": ["boat"],
       "name": {
         "hr": "Čišćenje brodova",
         "en": "Boat cleaning"
@@ -153,8 +153,8 @@
     },
     {
       "id": "pharmacy-cleaning",
-      "categoryId": "Optional",
-      "page": ["commercial"],
+      "categoryId": "Included",
+      "page": ["pharmacy"],
       "name": {
         "hr": "Čišćenje ljekarni",
         "en": "Pharmacy cleaning"

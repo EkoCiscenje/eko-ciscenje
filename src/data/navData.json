@@ -25,19 +25,35 @@
     },
     "children": [
       {
-        "key": "project-1",
-        "url": "/projects/project-1/",
+        "key": "residential",
+        "url": "/projects/residential/",
         "label": {
           "hr": "Čišćenje stanova",
           "en": "Residential cleaning"
         }
       },
       {
-        "key": "project-2",
-        "url": "/projects/project-2/",
+        "key": "commercial",
+        "url": "/projects/commercial/",
         "label": {
           "hr": "Čišćenje ureda",
           "en": "Commercial cleaning"
+        }
+      },
+      {
+        "key": "boat",
+        "url": "/projects/boat/",
+        "label": {
+          "hr": "Čišćenje brodova",
+          "en": "Boat cleaning"
+        }
+      },
+      {
+        "key": "pharmacy",
+        "url": "/projects/pharmacy/",
+        "label": {
+          "hr": "Čišćenje ljekarni",
+          "en": "Pharmacy cleaning"
         }
       }
     ]
