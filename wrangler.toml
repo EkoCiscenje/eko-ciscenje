@@ -23,7 +23,7 @@ TURNSTILE_HOSTNAMES = "eko-ciscenje.com"
 name = "EMAIL"
 
 [env.staging]
-name = "dvije-zarulje-staging"
+name = "eko-ciscenje-staging"
 
 [[env.staging.routes]]
 pattern = "staging.eko-ciscenje.com"
