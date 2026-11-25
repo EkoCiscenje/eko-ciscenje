@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { BUSINESS } from "@data/client";
+import { BUSINESS, DEVELOPER } from "@data/client";
 import navData from "@data/navData.json";
 import { getCurrentYear } from "@js/utils";
 import { getLocaleFromUrl } from "@js/localeUtils";
@@ -88,7 +88,11 @@ const serviceLinks =
   <section class="credit">
     <span>{t("footer.credit")}</span>
     <a href={getLocalizedRoute(locale,"/")} target="_blank" rel="noopener">{BUSINESS.name}</a>
-    <span class="copyright"> Copyright {currentYear}</span>
+    <span class="copyright">© {currentYear}</span>
+    <span class="developer">
+      {t("footer.developedBy")}
+      <a href={DEVELOPER.url} target="_blank" rel="author noopener external">{DEVELOPER.name}</a>
+    </span>
   </section>
 </footer>
 
@@ -243,6 +247,14 @@ const serviceLinks =
           display: block;
         }
 
+        .developer {
+          font-size: (16/16rem);
+
+          a {
+            display: inline;
+          }
+        }
+
         .settings {
           display: flex;
         }
@@ -336,9 +348,16 @@ const serviceLinks =
       .credit {
         flex-direction: row;
         justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 0.5em;
+        row-gap: 0.25em;
 
         .copyright {
           display: inline-block;
+        }
+
+        .developer {
+          margin-left: auto;
         }
       }
     }

@@ -34,6 +34,11 @@ export const BUSINESS = {
   socials,
 };
 
+export const DEVELOPER = {
+  name: "Luka Šulc",
+  url: "https://lukasulc.com/",
+};
+
 export const OG = {
   locale: "hr_HR",
   image: "/assets/social.jpg",
