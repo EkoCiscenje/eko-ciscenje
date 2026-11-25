@@ -75,8 +75,8 @@ const serviceLinks =
             <a href={BUSINESS.address.mapLink} target="_blank" rel="noopener">
               {BUSINESS.address.lineOne}<br />
               {BUSINESS.address.lineTwo && <>{BUSINESS.address.lineTwo}<br /></>}
-              {BUSINESS.address.city}
-              {BUSINESS.address.state && ` ${BUSINESS.address.state}`}
+              {BUSINESS.address.city + ", "}
+              {BUSINESS.address.state && `${BUSINESS.address.state + ", "}`}
               {BUSINESS.address.zip}
             </a>
           </li>
