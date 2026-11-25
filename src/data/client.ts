@@ -21,7 +21,7 @@ const socials: BusinessSocials = {
 export const BUSINESS = {
   name: "Eko Čišćenje",
   phoneForTel: "+385914478191",
-  phoneFormatted: "+385 91 447 8191",
+  phoneFormatted: " +385 91 447 8191",
   logo: "/favicon.svg",
   address: {
     lineOne: "Tišinska ulica III. odvojak",
