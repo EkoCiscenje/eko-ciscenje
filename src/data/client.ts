@@ -21,7 +21,7 @@ const socials: BusinessSocials = {
 export const BUSINESS = {
   name: "Eko Čišćenje",
   phoneForTel: "+385914478191",
-  phoneFormatted: "+385 91 447 8191",
+  phoneFormatted: " +385 91 447 8191",
   logo: "/favicon.svg",
   address: {
     lineOne: "Tišinska ulica III. odvojak",
@@ -32,6 +32,11 @@ export const BUSINESS = {
     mapLink: "https://maps.app.goo.gl/xX5ZVQLiH57prSWy8",
   },
   socials,
+};
+
+export const DEVELOPER = {
+  name: "Luka Šulc",
+  url: "https://lukasulc.com/",
 };
 
 export const OG = {
