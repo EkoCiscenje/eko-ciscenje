@@ -19,6 +19,9 @@ CONTACT_TO_EMAIL = "contact@eko-ciscenje.com"
 CONTACT_FROM_EMAIL = "no-reply@eko-ciscenje.com"
 TURNSTILE_HOSTNAMES = "eko-ciscenje.com"
 
+[previews.vars]
+TURNSTILE_HOSTNAMES = "eko-ciscenje.com"
+
 [[send_email]]
 name = "EMAIL"
 
@@ -33,6 +36,11 @@ custom_domain = true
 directory = "dist"
 binding = "ASSETS"
 
+[observability]
+enabled = false
+head_sampling_rate = 1
+redact_query_string = false
+
 [observability.logs]
 enabled = true
 head_sampling_rate = 1
@@ -44,5 +52,5 @@ enabled = true
 head_sampling_rate = 1
 persist = true
 
-[observability.issue_detection]
+[observability.issues]
 enabled = true
