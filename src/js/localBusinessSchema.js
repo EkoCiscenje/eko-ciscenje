@@ -1,4 +1,4 @@
-import { SITE, BUSINESS } from "@data/client";
+import { SITE, BUSINESS, DEVELOPER } from "@data/client";
 
 export function getLocalBusinessSchema(origin) {
   const sameAs = [];
@@ -7,6 +7,7 @@ export function getLocalBusinessSchema(origin) {
 
   const businessId = `${SITE.url}/#business`;
   const websiteId = `${SITE.url}/#website`;
+  const developerId = `${DEVELOPER.url}#person`;
 
   const schema = {
     "@context": "https://schema.org",
@@ -18,6 +19,9 @@ export function getLocalBusinessSchema(origin) {
         url: SITE.url,
         description: SITE.description,
         inLanguage: ["hr-HR", "en-US"],
+        creator: {
+          "@id": developerId,
+        },
         publisher: {
           "@id": businessId,
         },
@@ -127,6 +131,12 @@ export function getLocalBusinessSchema(origin) {
           "Eko Čišćenje, Eko Ciscenje, čišćenje parom Zagreb, čišćenje parom Samobor, čišćenje parom Velika Gorica, čišćenje parom Zaprešić, čišćenje parom Sveta Nedelja, čišćenje parom Dugo Selo, čišćenje parom Jastrebarsko, čišćenje parom Karlovac, čišćenje parom Krapina, čišćenje parom Sisak, tepih čišćenje, uredsko čišćenje, ekološko čišćenje",
         sameAs,
         inLanguage: SITE.locale,
+      },
+      {
+        "@type": "Person",
+        "@id": developerId,
+        name: DEVELOPER.name,
+        url: DEVELOPER.url,
       },
       {
         "@type": "Place",
