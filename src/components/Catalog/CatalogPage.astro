@@ -30,11 +30,13 @@ const images = {
 	residential: boatImage,
 	commercial: pharmacyImage,
 };
+const imageFormats: ("avif" | "webp")[] =
+	page === "pharmacy" || page === "commercial" ? ["webp"] : ["avif", "webp"];
 const categoryIds = getOfferingsPageCategoryIds(offeringsData, page);
 ---
 
 <BaseLayout title={title} description={description}>
-	<Banner title={title} image={images[page]} />
+	<Banner title={title} image={images[page]} formats={imageFormats} />
 	<CatalogSection
 		locale={locale}
 		page={page}
